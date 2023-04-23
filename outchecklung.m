@@ -25,28 +25,28 @@ cA=PA/RT;
 %for the whole organism:
 %(write out these results)
 %oxygen concentration in (systemic) venous blood:
-cv
+cv;
 %
 %mean arterial oxygen concentration:
-cabar=Q' *ca/sum(Q)
+cabar=Q' *ca/sum(Q);
 %  
 %mean alveolar oxygen concentration:
-cAbar=VA'*cA/sum(VA)
+cAbar=VA'*cA/sum(VA);
 %
 %oxygen concentration is the inspired air:
-cI
+cI;
 %
 %oxygen partial pressure in venous blood:
-Pv=H(cv)
+Pv=H(cv);
 %
 %mean arterial oxygen partial pressure:
-Pabar=H(cabar)
+Pabar=H(cabar);
 %
 %mean alveolar oxygen partial pressure:
-PAbar=RT*cAbar
+PAbar=RT*cAbar;
 %
 %oxygen partial pressure in the inspired air:
-PI=RT*cI
+PI=RT*cI;
 % 
 %check that partial pressures are in expected order
 if((Pv<Pabar)&(Pabar<=PAbar)&(PAbar<PI))
@@ -64,18 +64,18 @@ end
 %first consider individual-alveolus equations:
 fba= Q.*(ca-cv);
 faa=VA.*(cI-cA);
-check1=max(abs(fba-faa))/max(abs(fba))
-check2=max(abs(PA-Pa))/max(abs(PA))
-check3=max(abs(PA-RT*cA))/max(abs(PA))
+check1=max(abs(fba-faa))/max(abs(fba));
+check2=max(abs(PA-Pa))/max(abs(PA));
+check3=max(abs(PA-RT*cA))/max(abs(PA));
 ca_check=cstar*((Pa/Pstar).^3)./(1+(Pa/Pstar).^3);
-check4=max(abs(ca-ca_check))/max(abs(ca))
+check4=max(abs(ca-ca_check))/max(abs(ca));
 %
 %now check that total rate of oxygen transport 
 %matches rate of consumption
 fb=Q' *(ca-cv); %=sum(Q. *(ca-cv))
 fa=VA'*(cI-cA); %=sum(VA.*(cI-cA))
-check5=abs(M-fb)/abs(M)
-check6=abs(M-fa)/abs(M)
+check5=abs(M-fb)/abs(M);
+check6=abs(M-fa)/abs(M);
 %
 %plot various results 
 %against the ventilation-perfusion ratio, r:
