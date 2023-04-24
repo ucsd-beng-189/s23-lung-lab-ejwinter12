@@ -5,12 +5,12 @@ global Pstar cstar n maxcount M Q camax RT cI;
 i=0;% chose index variable
 betavals = 0.3; %chose beta values (ventilation-perfusion)
 Mcoeff = 1; %change Oxygen consumption
-crefcoeffvals = 1; %change inspired o2 concentration (eoundabout elevation)
+crefcoeffvals = 0.25:0.05:1.5; %change inspired o2 concentration (eoundabout elevation)
 beta = betavals;
-cstarcoeffvals = 0.3:0.01:1; %chose values: less than 1 is anemia
-crefcoeff = crefcoeffvals;
+cstarcoeffvals = 0.4; %chose values: less than 1 is anemia
+cstarcoeff = cstarcoeffvals; %set coeff value to anemia
 %for beta = betavals %over each beta value ::canceled for this task
-for cstarcoeff = cstarcoeffvals %over each crefcoeff value
+for crefcoeff = crefcoeffvals; %over each crefcoeff value
     i=i+1; %increase index each iteration
 setup_lung 
 cvsolve 
@@ -33,27 +33,27 @@ end
 % title('Variations with Beta')
 % legend('PI', 'PAbar', 'Pabar', 'Pv');
 
-% figure(5) 
-% hold on; 
-% plot(crefcoeffvals*0.2/(22.4*(310/273)), PIhold,'-.','LineWidth',5) %plot variables vs cI
-% plot(crefcoeffvals*0.2/(22.4*(310/273)), PAbarhold,'-.','LineWidth',5)
-% plot(crefcoeffvals*0.2/(22.4*(310/273)), Pabarhold,'-.','LineWidth',5)
-% plot(crefcoeffvals*0.2/(22.4*(310/273)), Pvhold,'-.','LineWidth',5)
-% xlabel('partial pressure oxygen in inspired air (altitude representation)')
-% ylabel('values')
-% title('Variations with Altitude Beta = 1')
-% legend('PI', 'PAbar', 'Pabar', 'Pv');
-
-figure(6) 
+figure(5) 
 hold on; 
-plot(cstarcoeffvals*0.2/(22.4*(310/273)), PIhold,'-.','LineWidth',5) %plot variables vs cI
-plot(cstarcoeffvals*0.2/(22.4*(310/273)), PAbarhold,'-.','LineWidth',5)
-plot(cstarcoeffvals*0.2/(22.4*(310/273)), Pabarhold,'-.','LineWidth',5)
-plot(cstarcoeffvals*0.2/(22.4*(310/273)), Pvhold,'-.','LineWidth',5)
-xlabel('cstar: concentration of hemaglobin')
+plot(crefcoeffvals*0.2/(22.4*(310/273)), PIhold,'-.','LineWidth',5) %plot variables vs cI
+plot(crefcoeffvals*0.2/(22.4*(310/273)), PAbarhold,'-.','LineWidth',5)
+plot(crefcoeffvals*0.2/(22.4*(310/273)), Pabarhold,'-.','LineWidth',5)
+plot(crefcoeffvals*0.2/(22.4*(310/273)), Pvhold,'-.','LineWidth',5)
+xlabel('partial pressure oxygen in inspired air (altitude representation)')
 ylabel('values')
-title('Variations with cstar')
+title('Variations with Altitude with anemia')
 legend('PI', 'PAbar', 'Pabar', 'Pv');
+
+% figure(6) 
+% hold on; 
+% plot(cstarcoeffvals*0.2/(22.4*(310/273)), PIhold,'-.','LineWidth',5) %plot variables vs cI
+% plot(cstarcoeffvals*0.2/(22.4*(310/273)), PAbarhold,'-.','LineWidth',5)
+% plot(cstarcoeffvals*0.2/(22.4*(310/273)), Pabarhold,'-.','LineWidth',5)
+% plot(cstarcoeffvals*0.2/(22.4*(310/273)), Pvhold,'-.','LineWidth',5)
+% xlabel('cstar: concentration of hemaglobin')
+% ylabel('values')
+% title('Variations with cstar')
+% legend('PI', 'PAbar', 'Pabar', 'Pv');
 
 %% Task 4 trial and error plot
 %figure
