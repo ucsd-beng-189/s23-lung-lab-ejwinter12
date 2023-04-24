@@ -11,7 +11,7 @@ maxcount=20;
 n=100;
 %
 %reference oxygen concentration (moles/liter):
-cref=0.2/(22.4*(310/273));
+cref=crefcoeff*0.2/(22.4*(310/273));
 %cref=concentration of oxygen 
 %in air at sea level at body temperature
 %
