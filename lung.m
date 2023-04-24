@@ -5,8 +5,9 @@ global Pstar cstar n maxcount M Q camax RT cI;
 i=0;% chose index variable
 betavals = 0.3; %chose beta values (ventilation-perfusion)
 Mcoeff = 1; %change Oxygen consumption
-crefcoeffvals = 0.2:0.1:10; %change inspired o2 concentration (eoundabout elevation)
+crefcoeffvals = 0.15; %change inspired o2 concentration (eoundabout elevation)
 beta = betavals;
+cstarcoeff = 1.5;
 %for beta = betavals %over each beta value ::canceled for this task
 for crefcoeff = crefcoeffvals %over each crefcoeff value
     i=i+1; %increase index each iteration
