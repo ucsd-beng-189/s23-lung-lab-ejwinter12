@@ -31,17 +31,29 @@ end
 % title('Variations with Beta')
 % legend('PI', 'PAbar', 'Pabar', 'Pv');
 
-figure(5) 
+% figure(5) 
+% hold on; 
+% plot(crefcoeffvals*0.2/(22.4*(310/273)), PIhold,'-.','LineWidth',5) %plot variables vs cI
+% plot(crefcoeffvals*0.2/(22.4*(310/273)), PAbarhold,'-.','LineWidth',5)
+% plot(crefcoeffvals*0.2/(22.4*(310/273)), Pabarhold,'-.','LineWidth',5)
+% plot(crefcoeffvals*0.2/(22.4*(310/273)), Pvhold,'-.','LineWidth',5)
+% xlabel('partial pressure oxygen in inspired air (altitude representation)')
+% ylabel('values')
+% title('Variations with Altitude')
+% legend('PI', 'PAbar', 'Pabar', 'Pv');
+
+figure(6) 
 hold on; 
-plot(crefcoeffvals*0.2/(22.4*(310/273)), PIhold,'-.','LineWidth',5) %plot variables vs cI
-plot(crefcoeffvals*0.2/(22.4*(310/273)), PAbarhold,'-.','LineWidth',5)
-plot(crefcoeffvals*0.2/(22.4*(310/273)), Pabarhold,'-.','LineWidth',5)
-plot(crefcoeffvals*0.2/(22.4*(310/273)), Pvhold,'-.','LineWidth',5)
-xlabel('cI/cref (altitude representation)')
+plot(RT*crefcoeffvals*0.2/(22.4*(310/273)), PIhold,'-.','LineWidth',5) %plot variables vs pI
+plot(RT*crefcoeffvals*0.2/(22.4*(310/273)), PAbarhold,'-.','LineWidth',5)
+plot(RT*crefcoeffvals*0.2/(22.4*(310/273)), Pabarhold,'-.','LineWidth',5)
+plot(RT*crefcoeffvals*0.2/(22.4*(310/273)), Pvhold,'-.','LineWidth',5)
+xlabel('partial pressure oxygen in inspired air (altitude representation)')
 ylabel('values')
 title('Variations with Altitude')
 legend('PI', 'PAbar', 'Pabar', 'Pv');
 %% Task 4 trial and error plot
+figure
 plot(0:0.2:1,[0.0321,0.0315,0.0308,0.0292,0.0247,0.0176],'.-','MarkerSize',20)
 title('maximum oxygen consumption at beta values')
 xlabel('beta') %plots maximum concentration vs beta determined by trial and error
