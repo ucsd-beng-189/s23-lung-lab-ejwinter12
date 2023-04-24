@@ -33,10 +33,10 @@ end
 
 figure(5) 
 hold on; 
-plot(crefcoeffvals, PIhold,'-.','LineWidth',5) %plot variables vs cI
-plot(crefcoeffvals, PAbarhold,'-.','LineWidth',5)
-plot(crefcoeffvals, Pabarhold,'-.','LineWidth',5)
-plot(crefcoeffvals, Pvhold,'-.','LineWidth',5)
+plot(crefcoeffvals*0.2/(22.4*(310/273)), PIhold,'-.','LineWidth',5) %plot variables vs cI
+plot(crefcoeffvals*0.2/(22.4*(310/273)), PAbarhold,'-.','LineWidth',5)
+plot(crefcoeffvals*0.2/(22.4*(310/273)), Pabarhold,'-.','LineWidth',5)
+plot(crefcoeffvals*0.2/(22.4*(310/273)), Pvhold,'-.','LineWidth',5)
 xlabel('cI/cref (altitude representation)')
 ylabel('values')
 title('Variations with Altitude')
